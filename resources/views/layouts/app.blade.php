@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -38,12 +39,34 @@
                                   <a style="" class="navbar-brand" href="#">STUDENTS</a>
                                 </div>
                                 <ul class="nav navbar-nav">
-                                  <li class="active"><a href="#">Home</a></li>
+                                  <li><a href="{{ url('home') }}">Home</a></li>
                                   
-                                  <li><a href="#">ABOUT US</a></li>
-                                  <li><a href="#">OFFICERS</a></li>
-                                  <li><a href="#">EXAMINATION</a></li>
-                                  <li><a href="#">STUDENTS</a></li>
+                                  <li><a href="{{ url('about_us') }}">ABOUT US</a></li>
+                                  <li><a href="{{ url('contact_us') }}">CONTACT US</a></li>
+                                  <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                                      STUDENT
+                                    <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" href="admission">
+
+                                        ADMISSION
+                                        </a>
+                                      </li>
+                                      <li><a class="dropdown-item" href="syllabus">
+                                        SYALLBUS
+                                        </a>
+                                        <li><a class="dropdown-item" href=>
+                                        E-JOURNAL
+                                        </a>
+                                        <li><a class="dropdown-item" href=>
+                                        SCHOARSHIP
+                                        </a>
+
+                                        
+                                      </li>
+                                    </ul>
+                                  </li>
                                   <li><a href="#">ACDAMICS</a></li>
                                   <li class="dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">SPORTS

@@ -59,7 +59,8 @@
             }
 
             .m-b-md {
-                margin-bottom: 30px;
+                margin
+                ottom: 30px;
             }
         </style>
     </head>
