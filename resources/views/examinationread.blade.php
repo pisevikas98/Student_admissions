@@ -36,5 +36,6 @@
     </tbody>
   </table>
   <a href="{{url('contact_us')}}" class="btn btn-info">Contact details</a>
+  <a href="{{url('examinationexport')}}" class="btn btn-danger">Export Excel</a>
 </div>
 @endsection

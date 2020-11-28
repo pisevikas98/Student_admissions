@@ -28,6 +28,7 @@ Route::get('examinationread','HomeController@examinationread');
 Route::get('examinationedit/{rahul_id}','HomeController@examinationedit');
 Route::post('examinationupdate/{rahul_id}','HomeController@examinationupdate');
 Route::get('examinationdelete/{rahul_id}','HomeController@examinationdelete');
+Route::get('examinationexport','HomeController@examinationexport');
 
 Route::get('admission','HomeController@admission');
 Route::get('admissionform','HomeController@admissionform');
@@ -36,9 +37,13 @@ Route::get('admissionformread','HomeController@admissionformread');
 Route::get('admissionformedit/{pise_id}','HomeController@admissionformedit');
 Route::post('admissionformupdate/{pise_id}','HomeController@admissionformupdate');
 Route::get('admissionformdelete/{pise_id}','HomeController@admissionformdelete');
+Route::get('admissionformPdf','HomeController@admissionformPdf');
+Route::get('admissionexport','HomeController@admissionexport');
 
 Route::get('internationalform','internationalController@internationalform');
 Route::post('internationalformsave','internationalController@internationalformsave');
 
-
 Route::get('syllabus','HomeController@syllabus');
+
+Route::get('scholarship','HomeController@scholarship');
+Route::post('scholarshipsave','HomeController@scholarshipsave');

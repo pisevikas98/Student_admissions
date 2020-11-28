@@ -5,6 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\contact;
 use App\student;
+use PDF;
+use App\Exports\studentExport;
+use App\Exports\contactExport;
+use Maatwebsite\Excel\Facades\Excel;
+use Mail;
+use App\scholarship;
 
 class HomeController extends Controller
 {
@@ -47,6 +53,17 @@ class HomeController extends Controller
         $data->email = $request->email;
         $data->mobile = $request->mobile;
         $data->msg = $request->msg;
+
+        $title="User Registration";
+        $message = "Thank you for Joining With BizNest.";
+        // $email = $request->email;
+        $message_data = ["message" => $message, "email"=> $request->email];
+        Mail::send('Thankyou', ['title' => $title, 'message_data' => $message_data], function ($message) use($message_data)
+        {
+            $message->from('therathdorahul@gmail.com');
+            $message->to($message_data['email'])->subject('Thank you for Joining With BizNest.');
+        });
+
         $data->save();
 
      return redirect('examinationread')->with('success','student contact details save successfully!');
@@ -81,6 +98,10 @@ class HomeController extends Controller
         $data->delete();
 
         return redirect('examinationread')->with('success','student contact data deleted successfully!');
+    }
+    public function examinationexport(){
+    return Excel::download(new contactExport, 'contact.xlsx');
+
     }
 
     public function admission(){
@@ -128,6 +149,16 @@ class HomeController extends Controller
         $leaving = time().'.'.$request->leaving->extension();  
         $request->leaving->move(public_path('leaving_certificate'), $leaving);
         $data->leaving = $leaving;
+
+        $title="User Registration";
+        $message = "Thank you for Joining With BizNest.";
+        // $email = $request->email;
+        $message_data = ["message" => $message, "email"=> $request->email];
+        Mail::send('Thanks', ['title' => $title, 'message_data' => $message_data], function ($message) use($message_data)
+        {
+            $message->from('therathdorahul@gmail.com');
+            $message->to($message_data['email'])->subject('Thank you for Joining With BizNest.');
+        });
 
 
         $data->save();
@@ -210,8 +241,39 @@ class HomeController extends Controller
         return redirect('admissionformread')->with('success','student details Delete successfully!');
 
      }
+     public function admissionformPdf(){
+        $data = student::all();
+         $pdf = PDF::loadView('admissionformPdf', compact('data'));
+  
+        return $pdf->download('student_pdf.pdf');
+     }
+     public function admissionexport(){
+
+     return Excel::download(new studentExport, 'student.xlsx');
+
+     }
 
      public function syllabus(){
         return view('syllabus');
+     }
+
+     public function scholarship(){
+        return view('scholarship');
+     }
+     public function scholarshipsave(Request $request){
+        $data = new scholarship();
+        $data->name = $request->name;
+        $data->amout = $request->amout;
+        $data->income = $request->income;
+        $data->domicile = $request->domicile;
+        $data->non_criminal = $request->non_criminal;
+        $data->cast = $request->cast;
+        $data->aadhar = $request->aadhar;
+        $data->pan = $request->pan;
+        $data->Save();
+
+        return redirect('scholarship')->with('success','student scholarship details save successfully!');
+
+
      }
 }

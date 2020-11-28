@@ -56,10 +56,7 @@
                                       <li><a class="dropdown-item" href="syllabus">
                                         SYALLBUS
                                         </a>
-                                        <li><a class="dropdown-item" href=>
-                                        E-JOURNAL
-                                        </a>
-                                        <li><a class="dropdown-item" href=>
+                                        <li><a class="dropdown-item" href="scholarship">
                                         SCHOARSHIP
                                         </a>
 

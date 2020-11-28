@@ -9,6 +9,8 @@
         <strong>{{ $message }}</strong>
 </div>
 @endif 
+<a href="{{url('admissionformPdf')}}" class="btn btn-danger">Export Pdf</a><br><br>         
+<a href="{{url('admissionexport')}}" class="btn btn-success">Export Excel</a><br><br>         
 <a href="{{url('admissionform')}}" class="btn btn-info">Add Details</a><br><br>         
   <table class="table table-striped table-bordered text-center">
     <thead>
